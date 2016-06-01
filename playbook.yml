@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: 'yes'
+  tasks:
+      - name: Install python
+        shell: apk add python
+
+      - name: Install docker
+        shell: apk add docker
