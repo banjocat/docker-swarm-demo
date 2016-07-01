@@ -6,6 +6,7 @@ Vagrant.configure("2") do |config|
         ansible.playbook = "playbook.yml"
     end
 
+    config.vm.box_url = "maier/alpine-3.1.3-x86_64"
 
     config.vm.define "docker1" do |docker1|
         docker1.vm.box = "maier/alpine-3.1.3-x86_64"

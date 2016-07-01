@@ -1,9 +1,10 @@
 ---
 - hosts: all
   become: 'yes'
+  gather_facts: false
   tasks:
       - name: Install python
-        shell: apk add python
+        raw: apk add python
 
       - name: Install docker
         shell: apk add docker
