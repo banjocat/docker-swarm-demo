@@ -1,10 +1,22 @@
 ---
-- hosts: all
-  become: 'yes'
-  gather_facts: false
-  tasks:
-      - name: Install python
-        raw: apk add python
 
-      - name: Install docker
-        shell: apk add docker
+- hosts: all
+  become: yes
+  gather_facts: no
+  roles:
+      - python
+      - docker_1_12
+
+- hosts: manager
+  become: yes
+  roles:
+      - swarm_init
+
+- hosts: node0 node1 node2
+  become: yes
+  vars:
+      - manager_ip: "10.0.1.2"
+      - manager_port: 2377
+  roles:
+      - swarm_join
+

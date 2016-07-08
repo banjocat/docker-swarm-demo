@@ -1,0 +1,4 @@
+---
+
+- name: Install python
+  raw: sudo apt-get install -y python-simplejson

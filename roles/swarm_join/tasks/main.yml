@@ -1,0 +1,4 @@
+---
+
+- name: Join swarm
+  shell: docker swarm join "{{manager_ip}}:{{manager_port}}"
